@@ -1,0 +1,126 @@
+﻿
+======================================================================
+  PHISHING WEBSITE DETECTION RESULT
+======================================================================
+
+  URL: https://www.google.com
+
+  ≡ƒƒó VERDICT: LEGITIMATE WEBSITE
+     Confidence: 100.0%
+
+  Risk Level: ΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûê
+
+ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+  FEATURE ANALYSIS
+ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+
+  URL-Based Features:
+    url_length                         :    22.00  Γ£ô
+    hostname_length                    :    14.00  Γ£ô
+    path_length                        :     0.00  Γ£ô
+    num_dots                           :     2.00  Γ£ô
+    num_hyphens                        :     0.00  Γ£ô
+    num_underscores                    :     0.00  Γ£ô
+    num_slashes                        :     0.00  Γ£ô
+    num_question_marks                 :     0.00  Γ£ô
+    num_at_symbols                     :     0.00  Γ£ô
+    num_digits_in_domain               :     0.00  Γ£ô
+    has_ip_address                     :     0.00  Γ£ô
+    has_https                          :     1.00  Γ£ô
+
+  Domain-Based Features:
+    num_subdomains                     :     1.00  Γ£ô
+    domain_length                      :     6.00  Γ£ô
+    tld_length                         :     3.00  Γ£ô
+    has_suspicious_tld                 :     0.00  Γ£ô
+    has_suspicious_keywords            :     0.00  Γ£ô
+    path_has_suspicious_keywords       :     0.00  Γ£ô
+    num_redirects                      :     0.00  Γ£ô
+    special_char_ratio                 :     0.05  Γ£ô
+
+======================================================================
+
+
+======================================================================
+  PHISHING WEBSITE DETECTION RESULT
+======================================================================
+
+  URL: http://192.168.1.1/login/verify-account.php
+
+  ≡ƒö┤ VERDICT: PHISHING DETECTED!
+     Confidence: 94.6%
+
+  Risk Level: ΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûê
+
+ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+  FEATURE ANALYSIS
+ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+
+  URL-Based Features:
+    url_length                         :    43.00  Γ£ô
+    hostname_length                    :    11.00  Γ£ô
+    path_length                        :    25.00  Γ£ô
+    num_dots                           :     4.00  Γ£ô
+    num_hyphens                        :     1.00  Γ£ô
+    num_underscores                    :     0.00  Γ£ô
+    num_slashes                        :     2.00  Γ£ô
+    num_question_marks                 :     0.00  Γ£ô
+    num_at_symbols                     :     0.00  Γ£ô
+    num_digits_in_domain               :     8.00  ΓÜá suspicious
+    has_ip_address                     :     1.00  ΓÜá suspicious
+    has_https                          :     0.00  ΓÜá suspicious
+
+  Domain-Based Features:
+    num_subdomains                     :     0.00  Γ£ô
+    domain_length                      :    11.00  Γ£ô
+    tld_length                         :     0.00  Γ£ô
+    has_suspicious_tld                 :     0.00  Γ£ô
+    has_suspicious_keywords            :     3.00  ΓÜá suspicious
+    path_has_suspicious_keywords       :     3.00  ΓÜá suspicious
+    num_redirects                      :     0.00  Γ£ô
+    special_char_ratio                 :     0.02  Γ£ô
+
+======================================================================
+
+
+======================================================================
+  PHISHING WEBSITE DETECTION RESULT
+======================================================================
+
+  URL: http://secure-paypal-login.suspicious-site.tk/update
+
+  ≡ƒö┤ VERDICT: PHISHING DETECTED!
+     Confidence: 96.1%
+
+  Risk Level: ΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûê
+
+ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+  FEATURE ANALYSIS
+ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+
+  URL-Based Features:
+    url_length                         :    52.00  Γ£ô
+    hostname_length                    :    38.00  ΓÜá suspicious
+    path_length                        :     7.00  Γ£ô
+    num_dots                           :     2.00  Γ£ô
+    num_hyphens                        :     3.00  Γ£ô
+    num_underscores                    :     0.00  Γ£ô
+    num_slashes                        :     1.00  Γ£ô
+    num_question_marks                 :     0.00  Γ£ô
+    num_at_symbols                     :     0.00  Γ£ô
+    num_digits_in_domain               :     0.00  Γ£ô
+    has_ip_address                     :     0.00  Γ£ô
+    has_https                          :     0.00  ΓÜá suspicious
+
+  Domain-Based Features:
+    num_subdomains                     :     1.00  Γ£ô
+    domain_length                      :    15.00  Γ£ô
+    tld_length                         :     2.00  Γ£ô
+    has_suspicious_tld                 :     1.00  ΓÜá suspicious
+    has_suspicious_keywords            :     4.00  ΓÜá suspicious
+    path_has_suspicious_keywords       :     1.00  ΓÜá suspicious
+    num_redirects                      :     0.00  Γ£ô
+    special_char_ratio                 :     0.02  Γ£ô
+
+======================================================================
+

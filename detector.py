@@ -38,7 +38,7 @@ class PhishingDetector:
 
     def __init__(self, model_path=MODEL_PATH, scaler_path=SCALER_PATH):
         if not os.path.exists(model_path):
-            print(f"{Fore.RED}❌ Model not found at: {model_path}")
+            print(f"{Fore.RED}[X] Model not found at: {model_path}")
             print(f"{Fore.YELLOW}   Run 'python main.py train' first to train a model.")
             sys.exit(1)
 
@@ -56,7 +56,14 @@ class PhishingDetector:
         Returns:
             dict with keys: url, prediction, label, confidence, features
         """
-        features = extract_features(url)
+        if not url or not url.strip():
+            raise ValueError("URL cannot be empty.")
+
+        try:
+            features = extract_features(url)
+        except Exception as e:
+            raise ValueError(f"Could not parse URL '{url}': {e}")
+
         features_scaled = self.scaler.transform(features.reshape(1, -1))
 
         prediction = self.model.predict(features_scaled)[0]
@@ -85,11 +92,11 @@ class PhishingDetector:
         print(f"\n  {Fore.CYAN}URL:{Style.RESET_ALL} {result['url']}")
 
         if result["prediction"] == 1:
-            print(f"\n  {Fore.RED}{Style.BRIGHT}🔴 VERDICT: PHISHING DETECTED!")
-            risk_bar = f"{Fore.RED}{'█' * 20}"
+            print(f"\n  {Fore.RED}{Style.BRIGHT}[!] VERDICT: PHISHING DETECTED!")
+            risk_bar = f"{Fore.RED}{'#' * 20}"
         else:
-            print(f"\n  {Fore.GREEN}{Style.BRIGHT}🟢 VERDICT: LEGITIMATE WEBSITE")
-            risk_bar = f"{Fore.GREEN}{'█' * 20}"
+            print(f"\n  {Fore.GREEN}{Style.BRIGHT}[+] VERDICT: LEGITIMATE WEBSITE")
+            risk_bar = f"{Fore.GREEN}{'#' * 20}"
 
         if result["confidence"] is not None:
             pct = result["confidence"] * 100
@@ -98,9 +105,9 @@ class PhishingDetector:
         print(f"\n  Risk Level: {risk_bar}{Style.RESET_ALL}")
 
         # ── Feature Breakdown ─────────────────────────────────────────────
-        print(f"\n{'─'*70}")
+        print(f"\n{'-'*70}")
         print(f"  {Style.BRIGHT}FEATURE ANALYSIS")
-        print(f"{'─'*70}")
+        print(f"{'-'*70}")
 
         features = result["features"]
 
@@ -140,8 +147,8 @@ class PhishingDetector:
         }
 
         if name in suspicious_conditions and suspicious_conditions[name]:
-            return f"{Fore.RED}⚠ suspicious"
-        return f"{Fore.GREEN}✓"
+            return f"{Fore.RED}[!] suspicious"
+        return f"{Fore.GREEN}[ok]"
 
 
 def detect(url):

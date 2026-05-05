@@ -188,7 +188,7 @@ if __name__ == "__main__":
     ]
     for url in test_urls:
         feats = extract_features(url)
-        print(f"\n{'─'*60}")
+        print(f"\n{'-'*60}")
         print(f"URL: {url}")
         for name, val in zip(FEATURE_NAMES, feats):
             print(f"  {name:35s}: {val}")

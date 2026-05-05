@@ -79,14 +79,14 @@ def train(dataset_path="phishing_dataset.csv"):
     print("  PHISHING WEBSITE DETECTION - MODEL TRAINING")
     print("=" * 70)
 
-    print(f"\n📂 Loading dataset from: {dataset_path}")
+    print(f"\n[*] Loading dataset from: {dataset_path}")
     df = pd.read_csv(dataset_path)
     print(f"   Samples loaded: {len(df)}")
     print(f"   Legitimate (0): {(df['label'] == 0).sum()}")
     print(f"   Phishing   (1): {(df['label'] == 1).sum()}")
 
     # ── Feature Extraction ────────────────────────────────────────────────
-    print(f"\n🔍 Extracting {len(get_feature_names())} features from URLs...")
+    print(f"\n[*] Extracting {len(get_feature_names())} features from URLs...")
     t0 = time.time()
     X = extract_features_batch(df["url"].tolist())
     y = df["label"].values
@@ -98,7 +98,7 @@ def train(dataset_path="phishing_dataset.csv"):
     X_train, X_test, y_train, y_test = train_test_split(
         X, y, test_size=TEST_SIZE, random_state=RANDOM_STATE, stratify=y
     )
-    print(f"\n📊 Train-test split ({int((1-TEST_SIZE)*100)}/{int(TEST_SIZE*100)}):")
+    print(f"\n[*] Train-test split ({int((1-TEST_SIZE)*100)}/{int(TEST_SIZE*100)}):")
     print(f"   Training samples: {len(X_train)}")
     print(f"   Testing samples : {len(X_test)}")
 
@@ -112,9 +112,9 @@ def train(dataset_path="phishing_dataset.csv"):
     results = {}
 
     for name, model in models.items():
-        print(f"\n{'─'*70}")
-        print(f"🤖 Training: {name}")
-        print(f"{'─'*70}")
+        print(f"\n{'-'*70}")
+        print(f"[>] Training: {name}")
+        print(f"{'-'*70}")
 
         t0 = time.time()
         model.fit(X_train_scaled, y_train)
@@ -155,7 +155,7 @@ def train(dataset_path="phishing_dataset.csv"):
     print("  MODEL COMPARISON")
     print("=" * 70)
     print(f"\n  {'Model':<22s} {'Accuracy':>10s} {'Precision':>10s} {'Recall':>10s} {'F1-Score':>10s} {'Time':>8s}")
-    print(f"  {'─'*22} {'─'*10} {'─'*10} {'─'*10} {'─'*10} {'─'*8}")
+    print(f"  {'-'*22} {'-'*10} {'-'*10} {'-'*10} {'-'*10} {'-'*8}")
 
     for name, res in results.items():
         print(f"  {name:<22s} {res['accuracy']:>10.4f} {res['precision']:>10.4f} "
@@ -165,23 +165,23 @@ def train(dataset_path="phishing_dataset.csv"):
     best_name = max(results, key=lambda k: results[k]["f1_score"])
     best_result = results[best_name]
 
-    print(f"\n🏆 Best Model: {best_name} (F1-Score: {best_result['f1_score']:.4f})")
+    print(f"\n[+] Best Model: {best_name} (F1-Score: {best_result['f1_score']:.4f})")
 
     os.makedirs(MODELS_DIR, exist_ok=True)
     joblib.dump(best_result["model"], BEST_MODEL_PATH)
     joblib.dump(scaler, SCALER_PATH)
 
-    print(f"\n💾 Model saved to: {BEST_MODEL_PATH}")
-    print(f"💾 Scaler saved to: {SCALER_PATH}")
+    print(f"\n[+] Model saved to: {BEST_MODEL_PATH}")
+    print(f"[+] Scaler saved to: {SCALER_PATH}")
 
     # ── Feature Importance (for tree-based models) ────────────────────────
     if hasattr(best_result["model"], "feature_importances_"):
-        print(f"\n📊 Feature Importance ({best_name}):")
+        print(f"\n[*] Feature Importance ({best_name}):")
         importances = best_result["model"].feature_importances_
         feature_names = get_feature_names()
         sorted_idx = np.argsort(importances)[::-1]
         for rank, idx in enumerate(sorted_idx[:10], 1):
-            bar = "█" * int(importances[idx] * 50)
+            bar = "#" * int(importances[idx] * 50)
             print(f"   {rank:>2d}. {feature_names[idx]:<35s} {importances[idx]:.4f}  {bar}")
 
     print(f"\n{'='*70}")

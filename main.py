@@ -29,21 +29,19 @@ except ImportError:
         BRIGHT = RESET_ALL = DIM = ""
 
 
-BANNER = f"""
-{'='*70}
-
-   ██████╗ ██╗  ██╗██╗███████╗██╗  ██╗    ██████╗ ███████╗████████╗
-   ██╔══██╗██║  ██║██║██╔════╝██║  ██║    ██╔══██╗██╔════╝╚══██╔══╝
-   ██████╔╝███████║██║███████╗███████║    ██║  ██║█████╗     ██║   
-   ██╔═══╝ ██╔══██║██║╚════██║██╔══██║    ██║  ██║██╔══╝     ██║   
-   ██║     ██║  ██║██║███████║██║  ██║    ██████╔╝███████╗   ██║   
-   ╚═╝     ╚═╝  ╚═╝╚═╝╚══════╝╚═╝  ╚═╝    ╚═════╝ ╚══════╝   ╚═╝   
-
-   Phishing Website Detection System
-   ML-powered URL classification using URL & domain-based features
-
-{'='*70}
-"""
+BANNER = (
+    "\n" + "=" * 70 + "\n"
+    "\n"
+    "   ____  _   _ ___ ____  _   _    ____  _____ _____\n"
+    "  |  _ \\| | | |_ _/ ___|| | | |  |  _ \\| ____|_   _|\n"
+    "  | |_) | |_| || |\\___ \\| |_| |  | | | |  _|   | |\n"
+    "  |  __/|  _  || | ___) |  _  |  | |_| | |___  | |\n"
+    "  |_|   |_| |_|___|____/|_| |_|  |____/|_____| |_|\n"
+    "\n"
+    "   Phishing Website Detection System\n"
+    "   ML-powered URL classification using URL & domain-based features\n"
+    "\n" + "=" * 70 + "\n"
+)
 
 
 def print_usage():
@@ -67,7 +65,7 @@ def interactive_mode():
 
     while True:
         try:
-            url = input(f"  {Fore.CYAN}Enter URL ▸ {Style.RESET_ALL}").strip()
+            url = input(f"  {Fore.CYAN}Enter URL > {Style.RESET_ALL}").strip()
             if not url:
                 continue
             if url.lower() in ("quit", "exit", "q"):
@@ -100,7 +98,7 @@ def main():
         print(BANNER)
         dataset_path = sys.argv[2] if len(sys.argv) > 2 else "phishing_dataset.csv"
         if not os.path.exists(dataset_path):
-            print(f"  {Fore.RED}❌ Dataset not found: {dataset_path}")
+            print(f"  {Fore.RED}[X] Dataset not found: {dataset_path}")
             print(f"  {Fore.YELLOW}   Run 'python main.py generate' first.\n")
             return
         train(dataset_path)
@@ -113,7 +111,7 @@ def main():
             interactive_mode()
 
     else:
-        print(f"\n  {Fore.RED}❌ Unknown command: {command}{Style.RESET_ALL}")
+        print(f"\n  {Fore.RED}[X] Unknown command: {command}{Style.RESET_ALL}")
         print_usage()
 
 

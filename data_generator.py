@@ -76,14 +76,19 @@ def _random_hex(length):
 
 def _generate_legitimate_standard(domain):
     """Standard legitimate URL with clean path."""
-    protocol = random.choice(["https://", "https://www."])
+    # Most legitimate sites use HTTPS, but some still use HTTP
+    protocol = random.choices(
+        ["https://", "https://www.", "http://", "http://www."],
+        weights=[45, 45, 5, 5],
+        k=1
+    )[0]
     path = random.choice(LEGITIMATE_PATHS)
     return f"{protocol}{domain}{path}"
 
 
 def _generate_legitimate_with_query(domain):
     """Legitimate URL with query parameters."""
-    protocol = "https://www."
+    protocol = random.choice(["https://www.", "https://"])
     path = random.choice(["/search", "/products", "/results", "/browse"])
     key = random.choice(["q", "id", "ref", "page", "category", "sort"])
     val = random.choice(["electronics", "books", "shoes", "home", "1", "2", "asc"])
@@ -113,7 +118,8 @@ def _generate_legitimate_subdomain(domain):
 def _generate_phishing_ip():
     """Phishing URL using raw IP address."""
     ip = f"{random.randint(1,255)}.{random.randint(0,255)}.{random.randint(0,255)}.{random.randint(0,255)}"
-    protocol = random.choice(["http://", "https://"])
+    # Many modern phishing sites use HTTPS to appear trustworthy
+    protocol = random.choices(["http://", "https://"], weights=[60, 40], k=1)[0]
     keyword = random.choice(PHISHING_KEYWORDS)
     path = f"/{keyword}/{_random_string(random.randint(5,15))}"
     return f"{protocol}{ip}{path}"
@@ -124,7 +130,7 @@ def _generate_phishing_typosquatting():
     brand = random.choice(list(TYPO_TARGETS.keys()))
     typo = random.choice(TYPO_TARGETS[brand])
     tld = random.choice([".com", ".net", ".org"] + SUSPICIOUS_TLDS[:5])
-    protocol = random.choice(["http://", "https://"])
+    protocol = random.choices(["http://", "https://"], weights=[55, 45], k=1)[0]
     keyword = random.choice(PHISHING_KEYWORDS)
     return f"{protocol}{typo}{tld}/{keyword}"
 
@@ -146,7 +152,7 @@ def _generate_phishing_excessive_subdomains():
     subs = [brand, random.choice(PHISHING_KEYWORDS), _random_string(5)]
     random.shuffle(subs)
     real_domain = f"{_random_string(8)}{random.choice(SUSPICIOUS_TLDS)}"
-    protocol = random.choice(["http://", "https://"])
+    protocol = random.choices(["http://", "https://"], weights=[50, 50], k=1)[0]
     return f"{protocol}{'.'.join(subs)}.{real_domain}/{random.choice(PHISHING_KEYWORDS)}"
 
 
@@ -245,7 +251,7 @@ def generate_dataset(output_path="phishing_dataset.csv", num_samples=10000):
         writer.writerow(["url", "label"])
         writer.writerows(urls)
 
-    print(f"✅ Dataset generated: {output_path}")
+    print(f"[+] Dataset generated: {output_path}")
     print(f"   Total samples  : {num_samples}")
     print(f"   Legitimate (0) : {num_legitimate}")
     print(f"   Phishing   (1) : {num_phishing}")
